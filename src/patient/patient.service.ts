@@ -54,6 +54,19 @@ export class PatientService {
     return this.patientModel.find()
   }
 
+  async findSinglePatient(id: string){
+    try{
+      const res =await this.patientModel.find({ _id: { $eq :id }});
+      return res
+      }
+    catch(error){
+      return {
+        message:"USER NOT FOUND"
+      }
+    }
+    
+  }
+
   async findPaitentByDoctorId(id: string) {
     const res =await this.patientModel.find({ Doctor: { $eq :id }});
     return res

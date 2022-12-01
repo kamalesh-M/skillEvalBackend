@@ -104,6 +104,11 @@ export class PatientController {
     return this.patientService.findAll();
   }
 
+  @Get('/single/:patientId')
+  findParticularPatient(@Param('patientId') patientId: string) {
+    return this.patientService.findSinglePatient(patientId);
+  }
+
   @Get(':doctorId')
   @ApiOperation({summary : 'find a particular doctors patient'})
   @ApiParam({
