@@ -20,6 +20,7 @@ export class UserService {
     try{
       await newUser.save()
       return {
+        "user": newUser,
         "message":"Sucess",
         "status":"200"
       }
